@@ -1,0 +1,82 @@
+<!-- <div class="card m-3">
+    <h5 class="card-header">Login Form</h5>
+    <div class="card-body">
+        <form #formLogin="ngForm" (ngSubmit)="onSubmit(formLogin)">
+            <div class="form-group col-12">
+                <label>Email</label>
+                <input type="email" name="email" #email="ngModel" class="form-control" [ngClass]="{ 'is-invalid': submitted && email.invalid }" ngModel />
+              <div *ngIf="submitted && email.invalid " class="invalid-feedback">
+                    <div>Email is required</div>
+                </div>
+                <div *ngIf="email.errors">
+                    Email not valid.
+                </div> 
+</div>
+<div class="form-row">
+    <div class="form-group col">
+        <label>Password</label>
+        <input type="password" name="password" #password="ngModel" class="form-control" [ngClass]="{ 'is-invalid': submitted && password.invalid }" ngModel />
+         <div *ngIf="submitted && password.invalid" class="invalid-feedback">
+                        <div>Password is required</div>
+                    </div> 
+    </div>
+</div>
+<div class="text-center">
+    <button type="submit" [disabled]="formLogin.invalid" class="btn btn-primary mr-1">login</button>
+    <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+</div>
+
+</form>
+</div>
+</div> -->
+
+
+
+
+
+<div class="content-login">
+    <h5 class="card-header">Login Form</h5>
+    <div class="login-card">
+        <div class="login-card-content">
+
+            <div class="form">
+                <form #formLogin="ngForm" (ngSubmit)="submit(formLogin)">
+                    <div *ngIf="messageError">
+                        <div class="alert alert-danger">
+                            <h3>email or password invalid</h3>
+                        </div>
+                    </div>
+                    <div class="form-group col-12">
+                        <label>Email</label>
+                        <input type="email" name="email" required #email="ngModel" class="form-control" [ngClass]="{ 'is-invalid': submitted && email.invalid }" ngModel />
+                        <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                            <div *ngIf="email.errors && email.errors['required']">email is required.</div>
+                            <div *ngIf="email.errors && email.errors['email']">not valid format</div>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group col-12">
+                        <label>password</label>
+                        <input type="password" name="password" minlength="6" required #password="ngModel" class="form-control" [ngClass]="{ 'is-invalid': submitted && password.invalid }" ngModel />
+                        <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                            <div *ngIf="password.errors && password.errors['required']">password is required.</div>
+                            <div *ngIf="password.errors && password.errors['minlength']">password is minimum 6 character.</div>
+                        </div>
+
+                    </div>
+
+                    <div class="text-center d-flex mt-3">
+                        <button type="submit" [class.disabled]="formLogin.invalid" class="btn btn-primary mr-1">login</button>
+                        <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                    </div>
+                </form>
+
+
+                <div>
+                    Don't have an account? <a routerLink="/register">Sign Up Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+.card {
+    background-image: linear-gradient(#fe7763, #fc3a5d);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    justify-content: center;
+}
+
+button {
+    background: white;
+    display: block;
+    color: #d61e2d;
+    width: auto;
+    border: none;
+    border-radius: 40px;
+    margin: 0 5px;
+    padding: 8px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-bottom: 32px;
+    outline: none;
+}
