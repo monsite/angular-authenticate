@@ -25,4 +25,8 @@ export class TokenStorageService {
     }
     return {}
   }
+
+  IsLoggedIn() {
+    return !!localStorage.getItem(token)
+  }
 }

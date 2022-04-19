@@ -12,4 +12,7 @@ export class UsersService {
   getAllUsers(): Observable<User[]> {
     return this.httpClient.get<User[]>('http://localhost:3000/users')
  }
+ getOneUser(id:any):Observable<User> {
+   return this.httpClient.get<User>('http://localhost:3000/users/'+id)
+ }
 }

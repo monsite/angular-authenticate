@@ -5,13 +5,15 @@ import { DashboardClientComponent } from './components/dashboard-client/dashboar
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuard } from './services/auth.guard';
+import { RoleClientGuard } from './services/role-client.guard';
+import { RoleGuard } from './services/role.guard';
 
 const routes: Routes = [
-  {path:'',component:DashboardAdminComponent, canActivate:[AuthGuard]},
+  {path:'',component:DashboardAdminComponent, canActivate:[AuthGuard,RoleGuard]},
   {path:'register',component:RegisterComponent},
   {path:'login',component:LoginComponent},
-  {path:'dashboard-client',component:DashboardClientComponent, canActivate:[AuthGuard]},
-  {path:'dashboard-admin',component:DashboardAdminComponent, canActivate:[AuthGuard]},
+  {path:'dashboard-client',component:DashboardClientComponent, canActivate:[AuthGuard,RoleClientGuard]},
+  {path:'dashboard-admin',component:DashboardAdminComponent, canActivate:[AuthGuard,RoleGuard]},
 
 ];
 
